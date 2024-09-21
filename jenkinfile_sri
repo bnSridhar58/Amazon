@@ -21,6 +21,17 @@ stage('test') {
 		always {
    		 archiveArtifacts artifacts: 'Amazon-Core/target/**.jar', followSymlinks: false
     		}
+
+stage('Approval') {
+            steps {
+                script {
+                    // Request approval before proceeding
+                    input message: 'Do you approve to deploy to Production?', 
+                          ok: 'Approve', 
+                          submitter: 'manager,devops' // Restrict who can approve (optional)
+                }
+            }
+        }
 }
 
     }
