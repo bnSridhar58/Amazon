@@ -7,7 +7,7 @@ pipeline {
 		}
 
 	stages {
-    stage('Approval') {
+         stage('Approval') {
             steps {
                 script {
                     // Request approval before proceeding
